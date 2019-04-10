@@ -19,6 +19,7 @@ function handle_change
     then
       # https://linux.die.net/man/1/transmission-remote
       read NEWPORT < /config/vpnportfw
+      sleep 30
       echo "port changed to $NEWPORT notifying transmission on $TRANSMISSION"
       transmission-remote $TRANSMISSION --port $NEWPORT
       echo "notified transmission"
