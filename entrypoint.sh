@@ -15,11 +15,10 @@ function handle_change
   ABSOLUTE_FILE="$FPATH$FILE"
 
   echo "$ABSOLUTE_FILE modified"
-  if [[ "${FILE}" == "vpnportfw" ]]
+  if [ "${FILE}" == "vpnportfw" ]
     then
       # https://linux.die.net/man/1/transmission-remote
       NEWPORT=$(cat /config/vpnportfw)
-      sleep 30
       echo "port changed to $NEWPORT notifying transmission on $TRANSMISSION"
       transmission-remote $TRANSMISSION --port $NEWPORT
       echo "notified transmission"
