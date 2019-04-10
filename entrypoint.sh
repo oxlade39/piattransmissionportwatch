@@ -18,7 +18,7 @@ function handle_change
   if [[ "${FILE}" == "vpnportfw" ]]
     then
       # https://linux.die.net/man/1/transmission-remote
-      read NEWPORT < /config/vpnportfw
+      NEWPORT=$(cat /config/vpnportfw)
       sleep 30
       echo "port changed to $NEWPORT notifying transmission on $TRANSMISSION"
       transmission-remote $TRANSMISSION --port $NEWPORT
